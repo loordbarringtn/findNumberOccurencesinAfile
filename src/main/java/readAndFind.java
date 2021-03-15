@@ -9,7 +9,6 @@ public class readAndFind {
         ArrayList<Integer> result = new ArrayList<>();
         int counter = 0;
 
-
         try (Scanner s = new Scanner(new FileReader("src/main/resources/dataset_91022.txt"))) {
             while (s.hasNext()) {
                 result.add(s.nextInt());
