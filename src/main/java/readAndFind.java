@@ -9,6 +9,7 @@ public class readAndFind {
         ArrayList<Integer> numbersFromFileOne = new ArrayList<>();
         ArrayList<Integer> numbersFromFileTwo = new ArrayList<>();
         int counter = 0;
+        int evenCounter = 0;
         int max = Integer.MIN_VALUE;
 
         try (Scanner s = new Scanner(new FileReader("src/main/resources/dataset_91022.txt"))) {
@@ -17,8 +18,8 @@ public class readAndFind {
             }
         }
 
-        for (int i = 0; i< numbersFromFileOne.size(); i++){
-            if (numbersFromFileOne.get(i)>=9999){
+        for (int i = 0; i < numbersFromFileOne.size(); i++) {
+            if (numbersFromFileOne.get(i) >= 9999) {
                 counter++;
             }
         }
@@ -31,13 +32,26 @@ public class readAndFind {
             }
         }
 
-        for (int i = 0; i< numbersFromFileTwo.size(); i++){
+        for (int i = 0; i < numbersFromFileTwo.size(); i++) {
             if (numbersFromFileTwo.get(i) > max) {
                 max = numbersFromFileTwo.get(i);
             }
         }
 
         System.out.println("Largest number:" + max);
+
+        try (Scanner s = new Scanner(new FileReader("src/main/resources/dataset_91065.txt"))) {
+            while (s.hasNext()) {
+                int number = s.nextInt();
+                if (number == 0) break;
+                if (number % 2 == 0) {
+                    evenCounter++;
+                }
+            }
+
+        }
+
+        System.out.println("Even numbers quantity: " + evenCounter);
 
     }
 }
